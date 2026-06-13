@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Reservation Management</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="sidebar">
+
+<div class="logo">🚆 RailBook</div>
+
+<ul>
+
+<li><a href="index.html">🏠 Dashboard</a></li>
+<li><a href="passengers.html">👤 Passengers</a></li>
+<li><a href="trains.html">🚄 Trains</a></li>
+
+<li>
+<a class="active" href="reservations.html">
+🎫 Reservations
+</a>
+</li>
+
+<li><a href="booking.html">📝 Booking</a></li>
+<li><a href="cancellation.html">❌ Cancellation</a></li>
+<li><a href="reports.html">📊 Reports</a></li>
+
+</ul>
+
+</div>
+
+<div class="main">
+
+<!-- Banner -->
+
+<div class="page-banner reservation-banner">
+
+<div class="banner-content">
+
+<h2>Reservation Management</h2>
+
+<p>
+Track confirmed tickets, waiting lists,
+seat allocation and passenger reservations.
+</p>
+
+</div>
+
+</div>
+
+<div class="topbar">
+
+<div>
+<h1>Reservation System</h1>
+<p>Manage Railway Reservations</p>
+</div>
+
+<button class="admin-btn">
++ New Reservation
+</button>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+<span>🎫</span>
+<h3>Total Reservations</h3>
+<h2>624</h2>
+</div>
+
+<div class="card">
+<span>✅</span>
+<h3>Confirmed</h3>
+<h2>580</h2>
+</div>
+
+<div class="card">
+<span>⏳</span>
+<h3>Waiting</h3>
+<h2>32</h2>
+</div>
+
+<div class="card">
+<span>❌</span>
+<h3>Cancelled</h3>
+<h2>12</h2>
+</div>
+
+</div>
+
+<div class="panel">
+
+<h2>Reservation Records</h2>
+
+<table>
+
+<tr>
+<th>Reservation ID</th>
+<th>Passenger</th>
+<th>Train</th>
+<th>Seat</th>
+<th>Date</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>R1001</td>
+<td>Divya</td>
+<td>Shatabdi Express</td>
+<td>B1-25</td>
+<td>15/06/2026</td>
+<td><span class="success">Confirmed</span></td>
+</tr>
+
+<tr>
+<td>R1002</td>
+<td>Rahul</td>
+<td>Jan Shatabdi</td>
+<td>WL-12</td>
+<td>18/06/2026</td>
+<td><span class="pending">Waiting</span></td>
+</tr>
+
+<tr>
+<td>R1003</td>
+<td>Anjali</td>
+<td>Intercity Express</td>
+<td>A2-11</td>
+<td>20/06/2026</td>
+<td><span class="success">Confirmed</span></td>
+</tr>
+
+<tr>
+<td>R1004</td>
+<td>Karan</td>
+<td>Mysore Express</td>
+<td>S4-32</td>
+<td>22/06/2026</td>
+<td><span class="cancel">Cancelled</span></td>
+</tr>
+
+<tr>
+<td>R1005</td>
+<td>Priya</td>
+<td>Vande Bharat</td>
+<td>C1-08</td>
+<td>25/06/2026</td>
+<td><span class="success">Confirmed</span></td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="panel">
+
+<h2>Seat Occupancy Analytics</h2>
+
+<div class="analytics-bar" style="width:90%;">
+AC First Class - 90%
+</div>
+
+<div class="analytics-bar" style="width:80%;">
+AC 2 Tier - 80%
+</div>
+
+<div class="analytics-bar" style="width:95%;">
+AC 3 Tier - 95%
+</div>
+
+<div class="analytics-bar" style="width:75%;">
+Sleeper - 75%
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
