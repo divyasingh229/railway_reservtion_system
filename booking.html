@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ticket Booking</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="sidebar">
+
+        <div class="logo">🚆 RailBook</div>
+
+        <ul>
+            <li><a href="index.html">🏠 Dashboard</a></li>
+            <li><a href="passengers.html">👤 Passengers</a></li>
+            <li><a href="trains.html">🚄 Trains</a></li>
+            <li><a href="reservations.html">🎫 Reservations</a></li>
+
+            <li>
+                <a class="active" href="booking.html">
+                    📝 Booking
+                </a>
+            </li>
+
+            <li><a href="cancellation.html">❌ Cancellation</a></li>
+            <li><a href="reports.html">📊 Reports</a></li>
+        </ul>
+
+    </div>
+
+    <div class="main">
+
+        <div class="page-banner booking-banner">
+
+            <div class="banner-content">
+
+                <h2>Ticket Booking Portal</h2>
+
+                <p>
+                    Book railway tickets securely and quickly.
+                    Choose your train, class and journey date.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="topbar">
+
+            <div>
+                <h1>Ticket Booking</h1>
+                <p>Railway Reservation Portal</p>
+            </div>
+
+            <button class="admin-btn">
+                PNR Search
+            </button>
+
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <span>🎫</span>
+                <h3>Today's Bookings</h3>
+                <h2>84</h2>
+            </div>
+
+            <div class="card">
+                <span>💺</span>
+                <h3>Available Seats</h3>
+                <h2>320</h2>
+            </div>
+
+            <div class="card">
+                <span>🚆</span>
+                <h3>Running Trains</h3>
+                <h2>121</h2>
+            </div>
+
+            <div class="card">
+                <span>💰</span>
+                <h3>Revenue Today</h3>
+                <h2>₹52,000</h2>
+            </div>
+
+        </div>
+
+        <div class="panel">
+
+            <h2>Book Your Journey</h2>
+
+            <form id="bookingForm">
+
+                <input
+                    type="text"
+                    placeholder="Passenger Name"
+                    required>
+
+                <input
+                    type="number"
+                    placeholder="Age"
+                    min="1"
+                    max="120"
+                    required>
+
+                <select required>
+                    <option value="">Select Gender</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Other</option>
+                </select>
+
+                <select required>
+                    <option value="">Select Train</option>
+                    <option>Shatabdi Express</option>
+                    <option>Jan Shatabdi</option>
+                    <option>Intercity Express</option>
+                    <option>Mysore Express</option>
+                    <option>Vande Bharat</option>
+                </select>
+
+                <input type="date" required>
+
+                <select required>
+                    <option value="">Select Class</option>
+                    <option>AC First Class</option>
+                    <option>AC 2 Tier</option>
+                    <option>AC 3 Tier</option>
+                    <option>Sleeper</option>
+                </select>
+
+                <select required>
+                    <option value="">Payment Method</option>
+                    <option>UPI</option>
+                    <option>Credit Card</option>
+                    <option>Debit Card</option>
+                    <option>Net Banking</option>
+                </select>
+
+                <button type="button" onclick="bookTicket()">
+                    Confirm Booking
+                </button>
+
+            </form>
+
+        </div>
+
+        <div class="panel">
+
+            <h2>Journey Summary</h2>
+
+            <table>
+
+                <tr>
+                    <th>Train</th>
+                    <th>Route</th>
+                    <th>Fare</th>
+                </tr>
+
+                <tr>
+                    <td>Vande Bharat</td>
+                    <td>Bangalore → Chennai</td>
+                    <td>₹1200</td>
+                </tr>
+
+                <tr>
+                    <td>Shatabdi Express</td>
+                    <td>Bangalore → Mysore</td>
+                    <td>₹850</td>
+                </tr>
+
+                <tr>
+                    <td>Jan Shatabdi</td>
+                    <td>Hubli → Belagavi</td>
+                    <td>₹720</td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+function bookTicket() {
+
+    const form = document.getElementById("bookingForm");
+
+    if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+    }
+
+    const name =
+        document.querySelector('input[type="text"]').value;
+
+    const pnr =
+        Math.floor(1000000000 + Math.random() * 9000000000);
+
+    alert(
+        "🎫 Ticket Booked Successfully!\n\n" +
+        "Passenger: " + name + "\n" +
+        "PNR Number: " + pnr
+    );
+
+    form.reset();
+}
+</script>
+
+</body>
+</html>
