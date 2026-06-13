@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cancellation - Railway Reservation System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <div class="sidebar">
+    <div class="logo">🚆 RailBook</div>
+    <ul>
+      <li><a href="index.html">🏠 Dashboard</a></li>
+      <li><a href="passengers.html">👤 Passengers</a></li>
+      <li><a href="trains.html">🚄 Trains</a></li>
+      <li><a href="reservations.html">🎫 Reservations</a></li>
+      <li><a href="booking.html">📝 Booking</a></li>
+      <li><a class="active" href="cancellation.html">❌ Cancellation</a></li>
+      <li><a href="reports.html">📊 Reports</a></li>
+    </ul>
+  </div>
+
+  <div class="main">
+    <div class="page-banner cancel-banner">
+      <div class="banner-content">
+        <h2>Ticket Cancellation & Refund</h2>
+        <p>Manage cancelled tickets, refund requests, passenger cancellations and refund status.</p>
+      </div>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Cancelled Today</h3>
+        <h2>18</h2>
+      </div>
+      <div class="card">
+        <h3>Refund Requests</h3>
+        <h2>52</h2>
+      </div>
+      <div class="card">
+        <h3>Processed</h3>
+        <h2>48</h2>
+      </div>
+      <div class="card">
+        <h3>Total Refund</h3>
+        <h2>₹85K</h2>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:20px;">
+      <h2 style="margin-bottom:20px;color:#FFD700;">Cancel Ticket</h2>
+      <form id="cancelForm" onsubmit="return cancelTicket()">
+        <input id="reservationId" type="text" placeholder="Reservation ID" required>
+        <input id="passengerName" type="text" placeholder="Passenger Name" required>
+        <input id="trainName" type="text" placeholder="Train Name" required>
+        <select id="cancelReason" required>
+          <option value="">Select Reason</option>
+          <option>Personal Reason</option>
+          <option>Journey Postponed</option>
+          <option>Medical Emergency</option>
+          <option>Schedule Conflict</option>
+        </select>
+        <button type="submit" class="btn">Cancel Ticket</button>
+      </form>
+    </div>
+
+    <div class="card" style="margin-top:20px;">
+      <h2 style="margin-bottom:20px;color:#FFD700;">Recent Cancellation Records</h2>
+      <table id="cancellationTable">
+        <tr>
+          <th>ID</th>
+          <th>Passenger</th>
+          <th>Train</th>
+          <th>Refund</th>
+          <th>Status</th>
+        </tr>
+        <tr>
+          <td>CN101</td>
+          <td>Rahul</td>
+          <td>Vande Bharat</td>
+          <td>₹1,250</td>
+          <td>Processed</td>
+        </tr>
+        <tr>
+          <td>CN102</td>
+          <td>Priya</td>
+          <td>Shatabdi Express</td>
+          <td>₹950</td>
+          <td>Processed</td>
+        </tr>
+        <tr>
+          <td>CN103</td>
+          <td>Arjun</td>
+          <td>Mysore Express</td>
+          <td>₹780</td>
+          <td>Pending</td>
+        </tr>
+        <tr>
+          <td>CN104</td>
+          <td>Divya</td>
+          <td>Jan Shatabdi</td>
+          <td>₹640</td>
+          <td>Processed</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+let nextCancelId = 105;
+
+function cancelTicket() {
+  const reservationId = document.getElementById("reservationId").value.trim();
+  const passengerName = document.getElementById("passengerName").value.trim();
+  const trainName = document.getElementById("trainName").value.trim();
+  const reason = document.getElementById("cancelReason").value;
+
+  if (!reservationId || !passengerName || !trainName || !reason) {
+    alert("Please fill in all fields and select a reason.");
+    return false;
+  }
+
+  const refundAmount = Math.floor(500 + Math.random() * 1200);
+  alert(
+    "🎫 Cancellation requested successfully!\n\n" +
+    "Reservation ID: " + reservationId + "\n" +
+    "Passenger: " + passengerName + "\n" +
+    "Train: " + trainName + "\n" +
+    "Reason: " + reason + "\n" +
+    "Estimated Refund: ₹" + refundAmount
+  );
+
+  const table = document.getElementById("cancellationTable");
+  const row = table.insertRow(-1);
+  row.innerHTML = `
+    <td>CN${nextCancelId++}</td>
+    <td>${passengerName}</td>
+    <td>${trainName}</td>
+    <td>₹${refundAmount}</td>
+    <td>Pending</td>
+  `;
+
+  document.getElementById("cancelForm").reset();
+  return false;
+}
+</script>
+</body>
+</html>
